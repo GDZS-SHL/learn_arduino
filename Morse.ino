@@ -32,12 +32,13 @@ void convert(char ch)
   case 120:{morse.dash();morse.dot();morse.dot();morse.dash();break;}//x
   case 121:{morse.dash();morse.dot();morse.dash();morse.dash();break;}//y
   case 122:{morse.dash();morse.dash();morse.dot();morse.dot();break;}//z  
-  case 32:{morse.dot();break;}
+  case 32:{morse.w_space();break;}
   }
 }
  
 void setup()
 {
+  Serial.begin(9600); 
 }
 
 void loop()
@@ -45,5 +46,6 @@ void loop()
   if (Serial.available() > 0) {
     chr = Serial.read();
     convert(chr);
+    morse.c_space();
 }
 }
